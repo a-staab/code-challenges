@@ -18,8 +18,10 @@ def missing_number(nums, max_num):
         if num != counter:
             return num - 1
         counter += 1
-
-    raise Exception("None are missing!")
+    if counter == max_num:
+        return max_num
+    else:
+        raise Exception("None are missing!")
 
 
 if __name__ == '__main__':
