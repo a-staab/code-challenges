@@ -34,24 +34,17 @@ def binary_search(val):
     num_guesses = 0
 
     to_check = range(0, 101)
-    mid_index = len(to_check)/2
 
-    if to_check[mid_index] == val:
-        return 1
-    else:
-        num_guesses = 1
-
-    while to_check[mid_index] != val:
+    while to_check:
+        mid_index = len(to_check)/2
         num_guesses += 1
+        if to_check[mid_index] == val:
+            return num_guesses
+
         if to_check[mid_index] > val:
             to_check = to_check[:mid_index]
-            mid_index = len(to_check)/2
         else:
             to_check = to_check[(mid_index):]
-            mid_index = len(to_check)/2
-
-    return num_guesses
-
 
 if __name__ == '__main__':
     import doctest
