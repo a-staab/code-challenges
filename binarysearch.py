@@ -13,15 +13,15 @@ of 1-100, this should never be more than 7.
     2
 
 
-    # >>> binary_search(75)
-    # 2
+    >>> binary_search(75)
+    2
 
 
-    # >>> binary_search(31) <= 7
-    # True
+    >>> binary_search(31) <= 7
+    True
 
-    # >>> max([binary_search(i) for i in range(1, 101)])
-    # 7
+    >>> max([binary_search(i) for i in range(1, 101)])
+    7
 
     """
 
@@ -43,12 +43,12 @@ def binary_search(val):
 
     while to_check[mid_index] != val:
         num_guesses += 1
-        if to_check[mid_index] < val:
-            left = to_check[:mid_index]
-            mid_index = len(left)/2
+        if to_check[mid_index] > val:
+            to_check = to_check[:mid_index]
+            mid_index = len(to_check)/2
         else:
-            right = to_check[(mid_index + 1):]
-            mid_index = len(right)/2
+            to_check = to_check[(mid_index):]
+            mid_index = len(to_check)/2
 
     return num_guesses
 
