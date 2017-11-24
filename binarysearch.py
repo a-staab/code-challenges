@@ -46,6 +46,7 @@ def binary_search(val):
         else:
             to_check = to_check[(mid_index):]
 
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
