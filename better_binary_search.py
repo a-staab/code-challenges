@@ -43,13 +43,13 @@ def get_index(arr, target):
     while lower <= upper and result == -1:
         midpoint = lower + (upper - lower)/2
 
-        if arr[midpoint] == target:
+        if target == arr[midpoint]:
             result = midpoint
 
-        elif arr[midpoint] > target:
+        elif target < arr[midpoint]:
             upper = midpoint - 1
 
-        elif arr[midpoint] < target:
+        elif target > arr[midpoint]:
             lower = midpoint + 1
 
     return result
