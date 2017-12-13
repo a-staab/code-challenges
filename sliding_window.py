@@ -1,5 +1,5 @@
 """
-Given an array of integers, return the largest sum of k consecutive numbers in
+Given an array of integers, return the largest sum of k consecutive integers in
 the array.
 
 >>> get_max_subarray([-1, 0, 10, 5], 2)
@@ -16,7 +16,12 @@ the array.
 
 def get_max_subarray(arr, k):
 
-# Write error handling for invalid input: empty list, k < 1, or k > len(arr)
+    if arr == []:
+        raise ValueError("Array must contain one or more integers.")
+
+    if not 0 < k <= len(arr):
+        raise ValueError("'K' must be a positive integer less than or equal to\
+                         the length of the array.")
 
     i = 0
     j = k
