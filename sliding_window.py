@@ -24,15 +24,14 @@ def get_max_subarray(arr, k):
                          the length of the array.")
 
     i = 0
-    j = k
-    max_so_far = sum_subarray = sum(arr[i:j])
 
-    while j < len(arr):
+    max_so_far = sum_subarray = sum(arr[i:k])
 
-        sum_subarray += (arr[j] - arr[i])
+    while (i + k) < len(arr):
+
+        sum_subarray += (arr[(i + k)] - arr[i])
         if sum_subarray > max_so_far:
             max_so_far = sum_subarray
         i += 1
-        j += 1
 
     return max_so_far
