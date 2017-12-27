@@ -64,4 +64,4 @@ def get_sum(node):
 
     if not node:
         return 0
-    return sum(node.data, get_sum(node.left), get_sum(node.right))
+    return node.data + get_sum(node.left) + get_sum(node.right)
