@@ -51,7 +51,15 @@ def sumTree(node):
         return True
 
     nodes_sum = get_sum(node.right) + get_sum(node.left)
-    valid_subtrees = sumTree(node.right) and sumTree(node.left)
+
+    valid_subtrees = False
+
+    if node.right and node.left:
+        valid_subtrees = sumTree(node.right) and sumTree(node.left)
+    elif node.right:
+        valid_subtrees = sumTree(node.right)
+    else:
+        valid_subtrees = sumTree(node.left)
 
     return valid_subtrees and (nodes_sum == node.data)
 
