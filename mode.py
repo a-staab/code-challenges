@@ -18,16 +18,20 @@ If there is a tie, return all::
 def find_mode(nums):
     """Find the most frequent num(s) in nums."""
 
-    frequencies = {}
-    for num in nums:
-        frequencies[num] = frequencies.get(num, 0) + 1
+    counts = {}
+    mode = set()
 
-    mode = set([])
-    for num, frequency in frequencies.items():
-        if frequency == max(frequencies.values()):
+    for num in nums:
+        counts[num] = counts.setdefault(num, 0) + 1
+
+    max_count = max(counts.values())
+
+    for num, count in counts.items():
+        if count == max_count:
             mode.add(num)
 
     return mode
+
 
 if __name__ == '__main__':
     import doctest
