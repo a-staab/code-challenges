@@ -26,7 +26,6 @@ def get_max_subarray(arr, k):
     i = 0
 
     max_so_far = sum_subarray = sum(arr[i:k])
-
     while (i + k) < len(arr):
 
         sum_subarray += (arr[(i + k)] - arr[i])

@@ -63,6 +63,7 @@ def has_balanced_parens(phrase):
 
     return open_parens == 0
 
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
