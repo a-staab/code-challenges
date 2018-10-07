@@ -33,3 +33,40 @@ class MinStack(object):
     def get_min(self):
         if self.minimum:
             return self.minimum[-1]
+
+
+import unittest
+
+
+class TestMinStack(unittest.TestCase):
+    def setUp(self):
+        self.minstack = MinStack()
+
+    def tearDown(self):
+        self.minstack = None
+
+    def test_init(self):
+        self.assertIsNotNone(MinStack())
+        with self.assertRaises(TypeError):
+            MinStack("an_argument")
+
+    def test_repr(self):
+        actual = str(self.minstack)
+        expected = "MinStack with elements [] and min = None"
+        self.assertEqual(actual, expected)
+
+    def test_push(self):
+        pass
+
+    def test_pop(self):
+        pass
+
+    def test_peek(self):
+        pass
+
+    def test_get_min(self):
+        pass
+
+if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestMinStack)
+    unittest.TextTestRunner(verbosity=2).run(suite)
