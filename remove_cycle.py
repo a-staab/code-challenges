@@ -49,6 +49,14 @@ class TestRemoveCycle(unittest.TestCase):
 
         self.ll_without_cycle = Ll_node(1, Ll_node(2, Ll_node(3)))
 
+    def get_length(self, head):
+        current = head
+        node_count = 0
+        while current:
+            node_count += 1
+            current = current.next
+        return node_count
+
     def tearDown(self):
         pass
 
@@ -79,18 +87,17 @@ class TestRemoveCycle(unittest.TestCase):
 
         # Check result of passing in a linked list with a cycle
         clipped_list = remove_cycle(self.ll_with_cycle)
-        self.assertIsNone(has_cycle(clipped_list))
+        actual_length = self.get_length(clipped_list)
         expected_length = 3
-        current = clipped_list
-        node_count = 0
-        while current:
-            node_count += 1
-            current = current.next
-        actual_length = node_count
+
+        self.assertIsNone(has_cycle(clipped_list))
+        self.assertIsNone(self.node_3.next)
         self.assertEqual(actual_length, expected_length)
 
         # Check result of passing in a linked list with > one node and no cycles
-
+        expected_length = 3
+        actual_length = self.get_length(remove_cycle(self.ll_without_cycle))
+        self.assertEqual(actual_length, expected_length)
 
 
 if __name__ == "__main__":
