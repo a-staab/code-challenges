@@ -57,9 +57,6 @@ class TestRemoveCycle(unittest.TestCase):
             current = current.next
         return node_count
 
-    def tearDown(self):
-        pass
-
     def test_has_cycle(self):
         # Check returns none for empty list
         self.assertIsNone(has_cycle(self.empty_ll))
