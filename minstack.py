@@ -56,7 +56,42 @@ class TestMinStack(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_push(self):
-        pass
+
+        # Tests when stack was empty previously
+        empty_stack = MinStack()
+        empty_stack.push(1)
+
+        expected_min = 1
+        actual_min = empty_stack.get_min()
+        self.assertEqual(actual_min, expected_min)
+
+        expected_top = 1
+        actual_top = empty_stack.peek()
+        self.assertEqual(actual_top, expected_top)
+
+        # Tests when new element is less than previous minimum
+        self.minstack.push(5)
+        self.minstack.push(2)
+
+        actual_min = self.minstack.get_min()
+        expected_min = 2
+        self.assertEqual(actual_min, expected_min)
+
+        actual_top = self.minstack.peek()
+        expected_top = 2
+        self.assertEqual(actual_top, expected_top)
+
+        # Tests when new elment is equal to previous minimum
+        
+
+        # # Tests when new elment is greater than previous minimum
+        # new_stack2 = MinStack().push(1).push(2)
+        # actual_min = new_stack2.mininum[-1]
+        # expected_min = 1
+        # actual_top = new_stack2.nums[-1]
+        # expected_top = 2
+        # self.assertEqual(actual_min, expected_min)
+        # self.assertEqual(actual_top, expected_top)
 
     def test_pop(self):
         pass
