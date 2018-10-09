@@ -82,6 +82,10 @@ class TestRemoveCycle(unittest.TestCase):
         actual = remove_cycle(self.ll_length_one)
         self.assertEqual(actual, expected)
 
+        expected_length = 1
+        actual_length = self.get_length(remove_cycle(self.ll_length_one))
+        self.assertEqual(actual_length, expected_length)
+
         # Check result of passing in a linked list with a cycle
         clipped_list = remove_cycle(self.ll_with_cycle)
         actual_length = self.get_length(clipped_list)
