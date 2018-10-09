@@ -10,7 +10,7 @@ def remove_cycle(head):
     cycle_start = has_cycle(head)
     if cycle_start:
         current = head
-        while current.next is not cycle_start:
+        while current is not cycle_start:
             current = current.next
         current.next = None
     return head
@@ -68,7 +68,29 @@ class TestRemoveCycle(unittest.TestCase):
         self.assertIsNone(has_cycle(self.ll_without_cycle))
 
     def test_remove_cycle(self):
-        pass
+
+        # Check returns none for empty list
+        self.assertIsNone(remove_cycle(self.empty_ll))
+
+        # Check returns same node for linked list with single node
+        expected = self.ll_length_one
+        actual = remove_cycle(self.ll_length_one)
+        self.assertEqual(actual, expected)
+
+        # Check result of passing in a linked list with a cycle
+        clipped_list = remove_cycle(self.ll_with_cycle)
+        self.assertIsNone(has_cycle(clipped_list))
+        expected_length = 3
+        current = clipped_list
+        node_count = 0
+        while current:
+            node_count += 1
+            current = current.next
+        actual_length = node_count
+        self.assertEqual(actual_length, expected_length)
+
+        # Check result of passing in a linked list with > one node and no cycles
+
 
 
 if __name__ == "__main__":
